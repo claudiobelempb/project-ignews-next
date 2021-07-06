@@ -1,4 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+// import "../assets/styles/global-default.scss";
+
 export default class AppDocument extends Document {
   render() {
     return (
