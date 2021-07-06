@@ -7,6 +7,7 @@ yarn start
 
 # dependencies
 
+-yarn add sass -S
 -yarn add styled-components -S
 -yarn add polished -S
 -yarn add react-switch -S

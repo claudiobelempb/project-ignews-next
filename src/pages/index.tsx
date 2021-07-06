@@ -1,7 +1,5 @@
-
+import style from "../assets/styles/home.module.scss";
 
 export default function Home() {
-  return (
-    <div>Hello World!</div>
-  )
+  return <div className={style.title}>Hello World!</div>;
 }
