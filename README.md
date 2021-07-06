@@ -19,10 +19,13 @@ yarn start
 
 # dev-dependencies
 
+-yarn add typescript @types/typescript -D
+-yarn add @types/react -D
+-yarn add @types/node -D
+-yarn add @types/react-router-dom -D
 -yarn add @types/styled-components -D
 -yarn add @types/react-modal -D
 -yarn add @types/uuid -D
--yarn add @types/react-router-dom -D
 -yarn add @types/axios -D
 
 ---
