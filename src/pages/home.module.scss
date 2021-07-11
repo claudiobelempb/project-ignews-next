@@ -1,0 +1,30 @@
+.home_main {
+  padding: 10rem 0;
+  & p strong {
+    color: var(--green-50);
+    font-size: 1.5rem;
+  }
+
+  & p, span {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  & h1, strong {
+    font-size: 4.5rem;
+    line-height: 4.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  & h1 strong {
+    color: var(--green-50);
+  }
+
+}
+
+.home_main__img {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 3rem;
+}
+

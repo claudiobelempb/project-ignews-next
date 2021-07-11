@@ -1,9 +1,13 @@
 import React from "react";
-import { ButtonContainer, ButtonContent } from "./style";
+import Img from "next/image";
+
+import style from "./button.module.scss";
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: React.ReactNode;
   title?: string;
   color?: string;
+  background?: string;
   isBgColor?: boolean;
   bgColor?: string;
   tgColor?: string;
@@ -17,7 +21,7 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   src?: string;
   isIcon?: boolean;
   isActive?: boolean;
-  jContent?: string;
+  isContent?: boolean;
   isLarge?: boolean;
   isMedium?: boolean;
   isSmall?: boolean;
@@ -25,40 +29,34 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isGreen?: boolean;
   isGreenLight?: boolean;
   isRedLight?: boolean;
-  isRed?: boolean;
+  isEnd?: boolean;
+  isStart?: boolean;
+  radius?: boolean;
+  size?: "small" | "medium" | "large" | "link" | "block";
 }
 
 export function Button({ children, ...props }: IButtonProps) {
   return (
-    <ButtonContainer jContent={props.jContent}>
-      <ButtonContent
-        isBgColor={props.isBgColor}
-        bgColor={props.bgColor}
-        color={props.color}
-        tagColor={props.tgColor}
-        width={props.width}
-        MaxWidth={props.MaxWidth}
-        MinWidth={props.MinWidth}
-        fontSize={props.fontSize}
-        opacity={props.opacity}
-        isAfter={props.isAfter}
-        isIcon={props.isIcon}
-        isActive={props.isActive}
-        type={props.type}
-        onClick={props.onClick}
-        title={props.title}
-        isLarge={props.isLarge}
-        isMedium={props.isMedium}
-        isSmall={props.isSmall}
-        isBlue={props.isBlue}
-        isGreen={props.isGreen}
-        isGreenLight={props.isGreenLight}
-        isRedLight={props.isRedLight}
-        isRed={props.isRed}
+    <div
+      className={`${style.btn} ${props.isEnd ? "flex_end" : ""} ${
+        props.isStart ? "flex_start" : ""
+      }`}
+    >
+      <button
+        className={`
+        ${style[props.size]} 
+        ${style[props.background]}
+        ${style.radius}
+      `}
       >
-        {props.isIcon ? <img src={props.src} alt={props.alt} /> : ""}
+        {props.isIcon ? (
+          <Img src={props.src} alt={props.alt} width={24} height={24} />
+        ) : (
+          ""
+        )}
         {props.title ? props.title : "Button"}
-      </ButtonContent>
-    </ButtonContainer>
+        {children}
+      </button>
+    </div>
   );
 }

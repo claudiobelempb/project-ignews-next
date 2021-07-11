@@ -1,56 +1,68 @@
 import React from "react";
-import { Container } from "../Container";
-import { Content } from "../Content";
-import { HeaderContainer } from "./styles";
+import Img from "next/image";
+import style from "./header.module.scss";
+import imgLogo from "../../assets/images/ig.news.svg";
+import imgGithubLeft from "../../assets/images/github-left.svg";
+import imgGithubRight from "../../assets/images/github-right.svg";
+import { Button } from "../Button";
+import { FiX } from "react-icons/fi";
 
 interface IHeader {
   children?: React.ReactNode;
-  isPosition?: boolean;
-  fdirection?: string;
-  garea?: string;
-  jcontent?: string;
-  aitems?: string;
-  bgcolor?: string;
-  isColor?: boolean;
-  isbg?: boolean;
-  isml?: boolean;
-  isp?: boolean;
-  isPaddingTB?: boolean;
-  isPaddingRL?: boolean;
-  mtop?: number;
-  ptb?: number;
-  prl?: number;
-  padding?: number;
-  isPadding?: boolean;
-  pt?: number;
-  pr?: number;
-  pb?: number;
-  pl?: number;
-  isHeight?: boolean;
-  height?: number | string;
-  width?: number;
 }
 
-const Header: React.FC<IHeader> = ({ children, ...props }: IHeader) => {
+export const Header: React.FC<IHeader> = ({ children, ...props }: IHeader) => {
+  const isUserLoggedIn = true;
   return (
-    <HeaderContainer
-      isPosition={props.isPosition}
-      jcontent={props.jcontent}
-      padding={props.padding}
-      isPadding={props.isPadding}
-      pt={props.pt}
-      pb={props.pb}
-      pr={props.pr}
-      pl={props.pl}
-      width={props.width}
-      garea={props.garea}
-      isbg={props.isbg}
-    >
-      <Container>
-        <Content>{children}</Content>
-      </Container>
-    </HeaderContainer>
+    <header className={`${style.header_default}`}>
+      <div className={`grid-1 flex_center`}>
+        <div className={`${style.brand}`}>
+          <h1 className={"font-zero"}>Logo Ig-news</h1>
+          <a href="#">
+            <Img src={imgLogo} alt="Logo Ig-news" />
+          </a>
+        </div>
+
+        <div className={`navbar`}>
+          <nav>
+            <h2 className={"font-zero"}>nav primary</h2>
+            <ul>
+              <li>
+                <a className={`active`} href="#">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#">Posts</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div className={style.btn}>
+          {isUserLoggedIn ? (
+            <Button
+              isEnd={true}
+              size={"small"}
+              background={"gray"}
+              title={"Sing in with GitHub"}
+              isIcon={true}
+              src={imgGithubLeft}
+            />
+          ) : (
+            <Button
+              isEnd={true}
+              size={"small"}
+              background={"gray"}
+              title={"tiagoluchtenberg"}
+              isIcon={true}
+              src={imgGithubRight}
+            >
+              <FiX className={"closeIcon"} />
+            </Button>
+          )}
+        </div>
+      </div>
+    </header>
   );
 };
-
-export { Header };

@@ -29,4 +29,6 @@ yarn start
 -yarn add @types/uuid -D
 -yarn add @types/axios -D
 
----
+# react-icons
+
+- yarn add react-icons -S
